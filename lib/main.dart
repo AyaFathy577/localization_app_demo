@@ -12,6 +12,7 @@ void main() {
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   const MyApp({Key key}) : super(key: key);
+
   static void setLocale(BuildContext context, Locale newLocale) {
     _MyAppState state = context.findAncestorStateOfType<_MyAppState>();
     state.setLocale(newLocale);
@@ -22,8 +23,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Locale _locale = Locale("ar", "SA");
 
-  Locale _locale;
   setLocale(Locale locale) {
     setState(() {
       _locale = locale;
@@ -42,14 +43,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    if (this._locale == null) {
-      return Container(
-        child: Center(
-          child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[800])),
-        ),
-      );
-    } else {
+    // if (this._locale == null) {
+    //   return Container(
+    //     color: Colors.white,
+    //     child: Center(
+    //       child: CircularProgressIndicator(),
+    //     ),
+    //   );
+    // } else {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Flutter Localization Demo",
@@ -76,8 +77,8 @@ class _MyAppState extends State<MyApp> {
           return supportedLocales.first;
         },
         onGenerateRoute: CustomRouter.generatedRoute,
-        initialRoute: homeRoute,
+        initialRoute: splashRoute,
       );
     }
-  }
+  // }
 }

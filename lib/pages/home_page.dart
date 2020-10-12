@@ -196,6 +196,23 @@ class _HomePageState extends State<HomePage> {
           ),
           ListTile(
             leading: Icon(
+              Icons.person,
+              color: Colors.white,
+              size: 30,
+            ),
+            title: Text(
+              getTranslated(context, 'profile'),
+              style: _textStyle,
+            ),
+            onTap: () {
+              // To close the Drawer
+              Navigator.pop(context);
+              // Navigating to About Page
+              Navigator.pushNamed(context, profileRoute);
+            },
+          ),
+          ListTile(
+            leading: Icon(
               Icons.settings,
               color: Colors.white,
               size: 30,
